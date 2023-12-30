@@ -5,15 +5,16 @@ learning_rate: 0.001 # Input model's learning rate
 
 model_type: 'Pytorch' # This value should be maintained
 model:
-  _target_: model name # Input your custom model
+  _target_: models.MNISTClassifier # Input your custom model
   output_size: 10 # Input your model's output size (only classification)
 
 dataset:
-    name: 'dataset name' # Input your data name
+    name: 'MNIST' # Input your data name
     validation_split: 0.2 # Ratio of dividing train data by validation
 
+
 # client
-task_id: 'podname' # Input your Task Name that you register in FedOps Website
+task_id: 'semo' # Input your Task Name that you register in FedOps Website
 
 wandb: 
   use: false # Whether to use wandb
@@ -36,4 +37,3 @@ server:
     min_fit_clients: ${clients_per_round} # Minimum number of clients to participate in training
     min_available_clients: ${clients_per_round} # Minimum number of clients to participate in a round
     min_evaluate_clients: ${clients_per_round} # Minimum number of clients to participate in evaluation
-
